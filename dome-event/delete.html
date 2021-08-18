@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>delete event</title>
+    </head>
+
+    <body>
+        <h2>Delete Event</h2>
+        <h3 id="element">very very importain</h3>
+        <input type="text" id="inputFild">
+        <button id="delete" disabled>Delete</button>
+        <script>
+            document.getElementById("delete").addEventListener("click", function () {
+                document.getElementById('element').style.display = 'none'
+            });
+
+            // focuas event 
+            document.getElementById("inputFild").addEventListener("focus", function () {
+                document.body.style.backgroundColor = "red"
+            })
+            // blur event 
+            document.getElementById("inputFild").addEventListener("blur", function () {
+                document.body.style.backgroundColor = "white"
+            })
+            // keyword keydown 
+            // document.getElementById("inputFild").addEventListener("keydown", function () {
+            //     const deletText = document.getElementById("inputFild")
+            //     console.log(deletText.value);
+
+            // keyword keyup 
+            document.getElementById("inputFild").addEventListener("keyup", function (event) {
+                // const deletText = document.getElementById("inputFild");
+                // console.log(deletText.value);
+                const deleteBtn = document.getElementById("delete");
+                if (event.target.value == "delete") {
+                    deleteBtn.removeAttribute("disabled")
+                } else {
+                    deleteBtn.setAttribute("disabled", true)
+
+                }
+            });
+            // keyword chaange 
+            document.getElementById("inputFild").addEventListener("keyup", function (event) {
+                const deletText = document.getElementById("inputFild");
+                console.log(event.target.value);
+            });
+        </script>
+    </body>
+
+</html>

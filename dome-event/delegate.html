@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>delegate</title>
+    </head>
+
+    <body>
+        <h2>Delegate</h2>
+        <ul id="ul_container">
+            <li class="items">Lorem, ipsum.</li>
+            <li class="items">Maxime, ratione.</li>
+            <li class="items">Beatae, sed.</li>
+            <li class="items">Culpa, consequuntur.</li>
+            <li class="items">Dicta, assumenda?</li>
+        </ul>
+        <button id="add_item">Add item</button>
+        <script>
+            // const items = document.getElementsByClassName("items");
+            // for (const item of items) {
+            //     item.addEventListener("click", function () {
+            //         document.getElementById("ul_container").removeChild(item);
+            //     })
+            // }
+            // for (const item of items) {
+            //     item.addEventListener("click", function (event) {
+            //         event.target.parentNode.removeChild(event.target);
+            //     })
+            // }
+            // const addItem = document.getElementById("add_item").addEventListener("click", function () {
+            //     const li = document.createElement('li');
+            //     li.innerText = " add new items"
+            //     const parent = document.getElementById("ul_container");
+            //     parent.appendChild(li);
+            // })
+            const addItem = document.getElementById("add_item").addEventListener("click", function () {
+                const li = document.createElement('li');
+                li.innerText = " add new items"
+                li.classList.add("items");
+                const parent = document.getElementById("ul_container");
+                parent.appendChild(li);
+            });
+            document.getElementById("ul_container").addEventListener("click", function (event) {
+                event.target.parentNode.removeChild(event.target)
+                console.log(event.target);
+            })
+
+        </script>
+    </body>
+
+</html>
